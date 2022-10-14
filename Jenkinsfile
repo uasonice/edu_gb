@@ -4,10 +4,11 @@ def TODAY = (new SimpleDateFormat("yyyyMMddHHmmss")).format(new Date())
 
 pipeline { agent any
   environment {
+    myID = "uasonice"
     strDockerTag = "${TODAY}_${BUILD_ID}"
     strDockerImage ="uasonice/cicd_gb:${strDockerTag}"
-		dockerID = "DockerHub_uasonice"
-		gitUrl = "https://github.com/${myID}/edu_gb"
+    dockerID = "DockerHub_uasonice"
+    gitUrl = "https://github.com/${myID}/edu_gb"
   }
 
   stages {
