@@ -45,9 +45,8 @@ pipeline { agent any
       steps {
         dir('/root/sub-workspace/guestbook-config'){
           sh '''
-            sed -i "s/cicd_guestbook:.*/cicd_guestbook:${strDockerTag}/g" guestbook/guestbook_deploy.yaml
-            git add guestbook/guestbook_deploy.yaml
-            git commit -m "[UPDATE] guestbook image tag - ${strDockerImage} (by jenkins)"
+            sed -i "s/cicd_gb:.*/cicd_gb:${strDockerTag}/g" guestbook/guestbook_deploy.yaml
+            git commit -am "[UPDATE] guestbook image tag - ${strDockerImage} (by jenkins)"
             git push "https://uasonice:${GITHUB_ACCESS_TOKEN}@github.com/${myID}/guestbook-config.git"
           '''
         }
